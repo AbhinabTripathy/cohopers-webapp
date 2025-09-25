@@ -1,15 +1,21 @@
-import { Hero } from "@/components/Hero";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { ClientLogos } from "@/components/ClientLogos";
+import { Achievements } from "@/components/Achievements";
 import { Features } from "@/components/Features";
-import { Membership } from "@/components/Membership";
+import { SpaceSwiper } from "@/components/SpaceSwiper";
+import { MeetingRoomsOffices } from "@/components/MeetingRoomsOffices";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
+      <HeroCarousel />
+      <ClientLogos />
+      <Achievements />
       <Features />
-      <Membership />
+      <SpaceSwiper />
+      <MeetingRoomsOffices />
       <Contact />
       <Footer />
     </div>
