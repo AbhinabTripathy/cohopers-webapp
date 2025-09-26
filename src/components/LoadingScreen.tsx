@@ -33,7 +33,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
             alt="Cohopers Logo"
             className="w-64 h-auto mx-auto animate-pulse"
           />
-          <div className="absolute -inset-4 bg-gradient-primary opacity-20 blur-xl rounded-full animate-ping" />
+          <div className="absolute -inset-4 bg-white/20 opacity-20 blur-xl rounded-full animate-ping" />
         </div>
         
         {/* Loading Text */}
