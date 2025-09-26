@@ -2,27 +2,21 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import cohopersLogo from "@/assets/cohopers-logo.png";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Spaces", href: "#spaces" },
-  { name: "Meeting Rooms", href: "#meeting-rooms" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Events", href: "#events" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Spaces", href: "/spaces" },
+  { name: "Meeting Rooms", href: "/meeting-rooms" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Events", href: "/events" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false);
-  };
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -40,24 +34,27 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                to={item.href}
+                className={`transition-colors duration-200 font-medium ${
+                  location.pathname === item.href
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                }`}
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button 
-              onClick={() => scrollToSection("#membership")}
-              className="bg-gradient-primary hover:scale-105 transition-all duration-300"
-            >
-              Membership
-            </Button>
+            <Link to="/membership">
+              <Button className="bg-gradient-primary hover:scale-105 transition-all duration-300">
+                Membership
+              </Button>
+            </Link>
             <ThemeToggle />
           </div>
 
@@ -80,21 +77,25 @@ export function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-200"
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${
+                    location.pathname === item.href
+                      ? "text-primary bg-muted"
+                      : "text-foreground hover:text-primary hover:bg-muted"
+                  }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
               <div className="pt-2">
-                <Button 
-                  onClick={() => scrollToSection("#membership")}
-                  className="w-full bg-gradient-primary hover:scale-105 transition-all duration-300"
-                >
-                  Membership
-                </Button>
+                <Link to="/membership" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-gradient-primary hover:scale-105 transition-all duration-300">
+                    Membership
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
