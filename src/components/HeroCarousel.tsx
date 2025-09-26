@@ -104,12 +104,12 @@ export function HeroCarousel() {
       <div className="relative z-30 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-poppins font-bold leading-tight">
-            <span className="dark:gradient-text light:text-foreground text-foreground">
+            <span className="dark:text-white light:text-foreground text-foreground">
               {slides[currentSlide].title}
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed dark:text-muted-foreground light:text-foreground">
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed dark:text-white light:text-foreground">
             {slides[currentSlide].subtitle}
           </p>
 
