@@ -7,6 +7,7 @@ import cohopersLogo from "@/assets/cohopers-logo.png";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Spaces", href: "#spaces" },
+  { name: "Meeting Rooms", href: "#meeting-rooms" },
   { name: "Gallery", href: "#gallery" },
   { name: "Events", href: "#events" },
   { name: "Contact Us", href: "#contact" },
