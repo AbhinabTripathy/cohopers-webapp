@@ -137,12 +137,29 @@ All colors MUST be HSL.
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  /* Gradient text */
+  /* Gradient text - only in dark mode */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Dark mode specific gradient text */
+  .dark .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Light mode - use foreground color instead of gradient */
+  .light .gradient-text {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: hsl(var(--foreground));
   }
   
   /* Animated gradient background */

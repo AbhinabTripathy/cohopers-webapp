@@ -72,11 +72,11 @@ export function HeroCarousel() {
               className="w-full h-full object-cover"
             />
             
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/30" />
+            {/* Overlay - Dark theme gets full overlay, light theme gets minimal overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/30 dark:opacity-100 light:opacity-20" />
             
-            {/* Animated gradient background */}
-            <div className="absolute inset-0 gradient-bg opacity-30" />
+            {/* Animated gradient background - Only visible in dark theme */}
+            <div className="absolute inset-0 gradient-bg opacity-30 dark:opacity-30 light:opacity-0" />
           </div>
         ))}
       </div>
@@ -104,12 +104,12 @@ export function HeroCarousel() {
       <div className="relative z-30 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-poppins font-bold leading-tight">
-            <span className="gradient-text">
+            <span className="dark:gradient-text light:text-foreground text-foreground">
               {slides[currentSlide].title}
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed dark:text-muted-foreground light:text-foreground">
             {slides[currentSlide].subtitle}
           </p>
 
