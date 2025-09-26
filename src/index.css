@@ -116,7 +116,16 @@ All colors MUST be HSL.
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-poppins font-semibold;
+    @apply font-poppins font-semibold text-foreground;
+  }
+  
+  p {
+    @apply text-foreground;
+  }
+  
+  /* Ensure proper text styling across themes */
+  .theme-text {
+    @apply text-foreground;
   }
 }
 

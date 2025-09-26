@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { Navbar } from "@/components/Navbar";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { ClientLogos } from "@/components/ClientLogos";
 import { Achievements } from "@/components/Achievements";
@@ -8,16 +11,35 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <HeroCarousel />
       <ClientLogos />
-      <Achievements />
-      <Features />
-      <SpaceSwiper />
-      <MeetingRoomsOffices />
-      <Contact />
-      <Footer />
+      <div id="achievements">
+        <Achievements />
+      </div>
+      <div id="spaces">
+        <Features />
+        <SpaceSwiper />
+        <MeetingRoomsOffices />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+      <div id="membership">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -54,11 +54,7 @@ export function HeroCarousel() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Theme Toggle - Fixed position */}
-      <div className="absolute top-6 right-6 z-50">
-        <ThemeToggle />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
 
       {/* Carousel Container */}
       <div className="absolute inset-0">
